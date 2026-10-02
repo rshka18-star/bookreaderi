@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050b16" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Spfive" />
+  <title>Spfive Book Reader</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="circle-btn" aria-label="Settings">⚙</button>
+      <div class="brand-wrap">
+        <img src="icon-512.png" alt="Spfive" class="brand-logo" />
+        <div class="tagline">BOOKS COME TO LIFE</div>
+      </div>
+      <button class="circle-btn" aria-label="Search">⌕</button>
+    </header>
+
+    <section class="hero-card">
+      <div class="book-icon">📖</div>
+      <div id="bookTitleHero" class="hero-title">YOUR BOOK</div>
+      <div id="bookType" class="hero-subtitle">PDF • TXT • EPUB*</div>
+    </section>
+
+    <section class="title-row">
+      <div>
+        <h1 id="bookTitle">Open a Book</h1>
+        <p id="bookMeta">Spfive Reader</p>
+      </div>
+      <button class="heart">♡</button>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      <div class="progress-meta">
+        <span id="progressText">0%</span>
+        <span id="statusText">READY</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="speedBtn" class="mini-btn">1×</button>
+      <button id="backBtn" class="mini-btn">↶15</button>
+      <button id="playBtn" class="play-btn">▶</button>
+      <button id="forwardBtn" class="mini-btn">15↷</button>
+      <button id="readerBtn" class="mini-btn">☰</button>
+    </section>
+
+    <section class="actions">
+      <label for="filePicker" class="open-btn">
+        <span>📖</span>
+        <strong>Open Book</strong>
+        <span>›</span>
+      </label>
+      <input id="filePicker" type="file" accept=".txt,.text,.pdf" hidden />
+    </section>
+
+
+    <section id="pageControls" class="page-controls hidden">
+      <div class="page-row">
+        <button id="prevPageBtn" class="page-nav-btn">‹ Prev</button>
+        <div class="page-input-wrap">
+          <span>Page</span>
+          <input id="pageInput" type="number" min="1" value="1" inputmode="numeric" />
+          <span id="pageTotal">of 0</span>
+        </div>
+        <button id="nextPageBtn" class="page-nav-btn">Next ›</button>
+      </div>
+      <button id="goPageBtn" class="go-page-btn">Read This Page</button>
+      <button id="readFromPageBtn" class="go-page-btn secondary">Read From This Page</button>
+    </section>
+
+    <section class="background-note">
+      <div class="headphones">🎧</div>
+      <div>
+        <strong>Keep listening when minimized</strong>
+        <small>Best effort on iPhone WebApp</small>
+      </div>
+      <div class="wave">▮▯▮▯▮</div>
+    </section>
+
+    <section id="readerPanel" class="reader-panel hidden">
+      <div class="reader-head">
+        <strong>Book Text</strong>
+        <button id="closeReader">✕</button>
+      </div>
+      <div id="readerText" class="reader-text">Open a book to start reading.</div>
+    </section>
+
+    <nav class="bottom-nav">
+      <div class="nav-item active">⌂<span>Home</span></div>
+      <div class="nav-item">▤<span>Library</span></div>
+      <div class="nav-item">◉<span>Discover</span></div>
+      <div class="nav-item">◯<span>Profile</span></div>
+    </nav>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";</script>
+<script src="app.js"></script>
+</body>
+</html>
